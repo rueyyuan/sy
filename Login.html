@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>登录 / 注册 - 深渊电竞</title>
+<style>
+body { margin:0; font-family: Arial; background:#0a0a0f; color:#fff; display:flex; justify-content:center; align-items:center; height:100vh; }
+.container { background:#111; padding:30px; border-radius:10px; width:300px; text-align:center; }
+h1 { color:#00e5ff; margin-bottom:20px; }
+input { width:100%; padding:10px; margin:10px 0; border:none; border-radius:5px; }
+button { width:100%; padding:10px; background:#25D366; border:none; border-radius:5px; color:#fff; font-size:16px; cursor:pointer; }
+button:hover { background:#1ebe5d; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>登录 / 注册深渊电竞</h1>
+  <input type="text" id="username" placeholder="用户名">
+  <input type="password" id="password" placeholder="密码">
+  <button onclick="loginOrRegister()">登录 / 注册</button>
+</div>
+
+<script>
+const USERS_KEY = "users";
+
+function getUsers() {
+  const users = localStorage.getItem(USERS_KEY);
+  return users ? JSON.parse(users) : {};
+}
+
+function saveUsers(users) {
+  localStorage.setItem(USERS_KEY, JSON.stringify(users));
+}
+
+function loginOrRegister() {
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value;
+
+  if(!username || !password){
+	alert("用户名和密码不能为空");
+	return;
+  }
+
+  let users = getUsers();
+
+  // 管理员账号固定
+  if(username === "admin"){
+	if(password === "admin_admin123"){
+	  localStorage.setItem("isLoggedIn","true");
+	  localStorage.setItem("currentUser",username);
+	  localStorage.setItem("isAdmin","true");
+	  alert("管理员登录成功！");
+	  window.location.href = "trade.html";
+	  return;
+	} else {
+	  alert("管理员密码错误！");
+	  return;
+	}
+  }
+
+  // 普通用户
+  if(users[username]){
+	if(users[username] === password){
+	  localStorage.setItem("isLoggedIn","true");
+	  localStorage.setItem("currentUser",username);
+	  localStorage.setItem("isAdmin","false");
+	  alert("登录成功！");
+	  window.location.href = "index.html";
+	} else {
+	  alert("密码错误！");
+	}
+  } else {
+	// 未注册自动注册
+	users[username] = password;
+	saveUsers(users);
+	localStorage.setItem("isLoggedIn","true");
+	localStorage.setItem("currentUser",username);
+	localStorage.setItem("isAdmin","false");
+	alert("账号未注册，已自动注册并登录！");
+	window.location.href = "index.html";
+  }
+}
+</script>
+
+</body>
+</html>

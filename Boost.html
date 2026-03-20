@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>代打服务 - 深渊电竞</title>
+
+<style>
+body {
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#0a0a0f;
+  color:#fff;
+}
+
+header {
+  text-align:center;
+  padding:20px;
+  background:#111;
+  position:relative;
+}
+
+.back-btn {
+  position:absolute;
+  left:15px;
+  top:20px;
+  color:#00e5ff;
+  text-decoration:none;
+}
+
+h1 {
+  color:#00e5ff;
+  margin:0;
+}
+
+.container {
+  padding:20px;
+}
+
+h2 {
+  margin-top:30px;
+  border-left:4px solid #00e5ff;
+  padding-left:10px;
+}
+
+.service {
+  background:#111;
+  margin-top:15px;
+  border-radius:10px;
+  padding:15px;
+}
+
+.row {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #333;
+  padding:10px 0;
+}
+
+.row:last-child {
+  border-bottom:none;
+}
+
+.price {
+  color:#00e5ff;
+  font-weight:bold;
+}
+
+.order-btn {
+  background:#25D366;
+  color:#fff;
+  padding:6px 12px;
+  text-decoration:none;
+  border-radius:5px;
+  font-size:14px;
+}
+
+.order-btn:hover {
+  background:#1ebe5d;
+}
+
+footer {
+  text-align:center;
+  padding:20px;
+  color:#666;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+  <a href="index.html" class="back-btn">← 返回首页</a>
+  <h1>代打服务</h1>
+</header>
+
+<div class="container">
+
+<!-- ✅ Valorant -->
+<h2>Valorant（瓦）</h2>
+<div class="service">
+  <div class="row"><span>黑铁 → 青铜</span><span class="price">RM3</span><a class="order-btn" onclick="order('Valorant 黑铁到青铜 RM3')">下单</a></div>
+  <div class="row"><span>青铜 → 白银</span><span class="price">RM5</span><a class="order-btn" onclick="order('Valorant 青铜到白银 RM5')">下单</a></div>
+  <div class="row"><span>白银 → 黄金</span><span class="price">RM6</span><a class="order-btn" onclick="order('Valorant 白银到黄金 RM6')">下单</a></div>
+  <div class="row"><span>黄金 → 铂金</span><span class="price">RM8</span><a class="order-btn" onclick="order('Valorant 黄金到铂金 RM8')">下单</a></div>
+  <div class="row"><span>铂金 → 钻石</span><span class="price">RM12</span><a class="order-btn" onclick="order('Valorant 铂金到钻石 RM12')">下单</a></div>
+  <div class="row"><span>钻石 → 超凡</span><span class="price">RM20</span><a class="order-btn" onclick="order('Valorant 钻石到超凡 RM20')">下单</a></div>
+</div>
+
+<!-- ✅ 王者 -->
+<h2>王者荣耀</h2>
+<div class="service">
+  <div class="row"><span>青铜 → 白银</span><span class="price">RM5</span><a class="order-btn" onclick="order('王者 青铜到白银 RM5')">下单</a></div>
+  <div class="row"><span>白银 → 黄金</span><span class="price">RM7</span><a class="order-btn" onclick="order('王者 白银到黄金 RM7')">下单</a></div>
+  <div class="row"><span>黄金 → 铂金</span><span class="price">RM9</span><a class="order-btn" onclick="order('王者 黄金到铂金 RM9')">下单</a></div>
+  <div class="row"><span>铂金 → 钻石</span><span class="price">RM12</span><a class="order-btn" onclick="order('王者 铂金到钻石 RM12')">下单</a></div>
+  <div class="row"><span>钻石 → 星耀</span><span class="price">RM15</span><a class="order-btn" onclick="order('王者 钻石到星耀 RM15')">下单</a></div>
+  <div class="row"><span>星耀 → 王者</span><span class="price">RM25</span><a class="order-btn" onclick="order('王者 星耀到王者 RM25')">下单</a></div>
+</div>
+
+<!-- ✅ COD -->
+<h2>Call of Duty</h2>
+<div class="service">
+  <div class="row"><span>青铜 → 白银</span><span class="price">RM3</span><a class="order-btn" onclick="order('COD 青铜到白银 RM3')">下单</a></div>
+  <div class="row"><span>白银 → 黄金</span><span class="price">RM5</span><a class="order-btn" onclick="order('COD 白银到黄金 RM5')">下单</a></div>
+  <div class="row"><span>黄金 → 铂金</span><span class="price">RM6</span><a class="order-btn" onclick="order('COD 黄金到铂金 RM6')">下单</a></div>
+  <div class="row"><span>铂金 → 钻石</span><span class="price">RM12</span><a class="order-btn" onclick="order('COD 铂金到钻石 RM12')">下单</a></div>
+  <div class="row"><span>钻石 → 宗师</span><span class="price">RM16</span><a class="order-btn" onclick="order('COD 钻石到宗师 RM16')">下单</a></div>
+  <div class="row"><span>宗师 → 传奇</span><span class="price">RM28</span><a class="order-btn" onclick="order('COD 宗师到传奇 RM28')">下单</a></div>
+</div>
+
+</div>
+
+<footer>
+  <p>© 2026 深渊电竞</p>
+</footer>
+
+<script>
+const phone = "60187838858";
+
+/* ✅ 所有下单统一提示 */
+function order(text) {
+  const msg = encodeURIComponent("我要下单：" + text);
+  if (confirm("即将跳转 WhatsApp 页面")) {
+	window.open("https://wa.me/" + phone + "?text=" + msg, "_blank");
+  }
+}
+</script>
+
+</body>
+</html>

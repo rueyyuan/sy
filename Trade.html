@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>账号买卖 - 深渊电竞</title>
+
+<style>
+body { margin:0; font-family: Arial; background:#0a0a0f; color:#fff; }
+
+header { background:#111; padding:15px; text-align:center; position:relative; }
+.back-btn { position:absolute; left:15px; top:15px; color:#00e5ff; text-decoration:none; }
+
+h1 { margin:0; color:#00e5ff; }
+
+.container { padding:15px; }
+
+.categories { display:flex; justify-content:center; gap:10px; padding:10px; }
+.upload-btn { background:#00e5ff; color:#000; padding:8px 15px; border-radius:20px; cursor:pointer; font-weight:bold; }
+
+.post { background:#111; padding:15px; border-radius:10px; margin-bottom:15px; }
+
+.post-title { color:#00e5ff; font-size:18px; margin:5px 0; }
+.post-header { font-size:14px; color:#aaa; }
+.post-content { font-size:14px; margin:10px 0; }
+
+.purchase-btn { background:#25D366; padding:8px 15px; color:#fff; text-decoration:none; border-radius:5px; cursor:pointer; }
+
+footer { text-align:center; padding:20px; color:#666; }
+</style>
+
+</head>
+
+<body>
+
+<header>
+  <a href="index.html" class="back-btn">← 返回首页</a>
+  <h1>账号买卖</h1>
+</header>
+
+<!-- 上架账号按钮 -->
+<div class="categories">
+  <div class="upload-btn" onclick="goUpload()">+ 上架账号</div>
+</div>
+
+<div class="container" id="postContainer">
+
+  <!-- 示例帖子 -->
+  <div class="post">
+	<div class="post-header">Valorant · 2026-03-19</div>
+	<div class="post-title">钻石账号出售</div>
+	<div class="post-content">高胜率账号，多皮肤，适合直接排位上分。</div>
+	<button class="purchase-btn" onclick="purchase('Valorant 钻石账号')">购买</button>
+  </div>
+
+  <div class="post">
+	<div class="post-header">王者荣耀 · 2026-03-18</div>
+	<div class="post-title">王者段位账号出售</div>
+	<div class="post-content">多英雄多皮肤，适合高端玩家。</div>
+	<button class="purchase-btn" onclick="purchase('王者账号')">购买</button>
+  </div>
+
+  <div class="post">
+	<div class="post-header">COD · 2026-03-17</div>
+	<div class="post-title">传奇账号出售</div>
+	<div class="post-content">高KD，已解锁多武器，适合竞技玩家。</div>
+	<button class="purchase-btn" onclick="purchase('COD 传奇账号')">购买</button>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 深渊电竞</p>
+</footer>
+
+<script>
+const phone = "60187838858";
+
+/* 点击上架账号跳 upload.html */
+function goUpload(){
+  window.location.href = "upload.html";
+}
+
+/* 点击购买按钮跳 WhatsApp + 提示 */
+function purchase(account) {
+  const msg = encodeURIComponent("我想购买：" + account);
+  if(confirm("即将跳转 WhatsApp 页面")) {
+	window.open("https://wa.me/" + phone + "?text=" + msg, "_blank");
+  }
+}
+</script>
+
+</body>
+</html>

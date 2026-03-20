@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>上架账号 - 深渊电竞</title>
+
+<style>
+body {
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#0a0a0f;
+  color:#fff;
+}
+
+header {
+  background:#111;
+  padding:15px;
+  text-align:center;
+  position:relative;
+}
+
+.back-btn {
+  position:absolute;
+  left:15px;
+  top:15px;
+  color:#00e5ff;
+  text-decoration:none;
+}
+
+h1 {
+  color:#00e5ff;
+  margin:0;
+}
+
+.container {
+  padding:20px;
+}
+
+.form-group {
+  margin-bottom:15px;
+}
+
+label {
+  display:block;
+  margin-bottom:5px;
+  color:#ccc;
+}
+
+input, textarea, select {
+  width:100%;
+  padding:10px;
+  border-radius:5px;
+  border:none;
+  outline:none;
+}
+
+textarea {
+  resize:none;
+  height:100px;
+}
+
+.note {
+  font-size:12px;
+  color:#aaa;
+  margin-top:5px;
+}
+
+.submit-btn {
+  width:100%;
+  padding:12px;
+  background:#25D366;
+  border:none;
+  color:#fff;
+  font-size:16px;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.submit-btn:hover {
+  background:#1ebe5d;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+  <a href="trade.html" class="back-btn">← 返回</a>
+  <h1>上架账号</h1>
+</header>
+
+<div class="container">
+
+  <div class="form-group">
+	<label>游戏ID</label>
+	<input type="text" id="gameId" placeholder="请输入游戏ID">
+  </div>
+
+  <div class="form-group">
+	<label>游戏种类</label>
+	<select id="gameType">
+	  <option>Valorant</option>
+	  <option>王者荣耀</option>
+	  <option>COD</option>
+	  <option>其他</option>
+	</select>
+  </div>
+
+  <div class="form-group">
+	<label>价格（RM）</label>
+	<input type="number" id="price" placeholder="请输入价格">
+	<div class="note">平台会抽取5%的佣金</div>
+  </div>
+
+  <div class="form-group">
+	<label>账号叙述</label>
+	<textarea id="desc" placeholder="例如：段位、皮肤、胜率等"></textarea>
+  </div>
+
+  <div class="form-group">
+	<label>图片（请在WhatsApp发送）</label>
+	<div class="note">提交后请在WhatsApp附上账号截图</div>
+  </div>
+
+  <button class="submit-btn" onclick="submitForm()">发送上架申请</button>
+
+</div>
+
+<script>
+const phone = "60187838858";
+
+function submitForm() {
+  const id = document.getElementById("gameId").value;
+  const type = document.getElementById("gameType").value;
+  const price = document.getElementById("price").value;
+  const desc = document.getElementById("desc").value;
+
+  const message = encodeURIComponent(
+`我要上架账号
+游戏ID: ${id}
+游戏种类: ${type}
+价格: RM${price}
+账号叙述: ${desc}
+
+*我会附上图片`
+  );
+
+  if(confirm("即将跳转 WhatsApp 页面")) {
+	window.open("https://wa.me/" + phone + "?text=" + message, "_blank");
+  }
+}
+</script>
+
+</body>
+</html>

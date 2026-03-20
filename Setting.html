@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>设置 - 深渊电竞</title>
+<style>
+body { margin:0; font-family: Arial; background:#0a0a0f; color:#fff; }
+header { background:#111; padding:15px; text-align:center; position:relative; }
+.back-btn { position:absolute; left:15px; top:15px; color:#00e5ff; text-decoration:none; }
+h1 { margin:0; color:#00e5ff; }
+.container { padding:20px; }
+button { width:100%; padding:12px; background:#25D366; border:none; border-radius:5px; color:#fff; font-size:16px; cursor:pointer; margin-top:10px; }
+button:hover { background:#1ebe5d; }
+</style>
+</head>
+<body>
+
+<script>
+if(localStorage.getItem("isLoggedIn") !== "true"){
+  alert("请先登录！");
+  window.location.href = "login.html";
+}
+
+function logout(){
+  localStorage.removeItem("isLoggedIn");
+  localStorage.removeItem("currentUser");
+  localStorage.removeItem("isAdmin");
+  alert("已登出");
+  window.location.href = "login.html";
+}
+</script>
+
+<header>
+  <a href="index.html" class="back-btn">← 返回首页</a>
+  <h1>设置</h1>
+</header>
+
+<div class="container">
+  <button onclick="logout()">登出</button>
+</div>
+
+</body>
+</html>
